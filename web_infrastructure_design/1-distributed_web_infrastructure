@@ -1,0 +1,25 @@
+DIAGRAM: https://drive.google.com/file/d/1PR87qcWUXb3Put8OxnoJpnqy-FLuZ3ym/view?usp=drive_link
+
+----------------------------------------------------------------------------
+
+The load balancer distributes incoming network traffic across multiple servers (2 here) to ensure no single server is overwhelmed. Round-Robin is the algorithm that distribute requests in a rotating order, ensuring even load distribution.
+
+The load balancer is configured in an active-active setup. This means that multiple load balancer instances handle traffic simultaneously. If one instance fails, the remaining instances will continue to manage the traffic without interruption. In contrast, an active-passive configuration has one active load balancer handling all traffic while the other remains on standby. If the active load balancer fails, the passive one takes over.
+
+A Primary-Replica database cluster is a setup in which one database server (the Primary or Master node) handles all the write operations, while one or more additional servers (the Replica or Slave nodes) replicate data from the Primary node and handle read operations.
+
+Primary Node (Master):
+
+The Primary node is responsible for handling all write operations (such as INSERT, UPDATE, DELETE queries).
+When a write operation occurs on the Primary node, it logs the change in a binary log file. This log records all modifications to the database.
+
+=> Replication Process:
+
+Replica Nodes (Slaves) constantly communicate with the Primary node to get updates.
+Replica nodes read the binary log from the Primary node and apply the same changes to their data, ensuring that they are synchronized with the Primary.
+
+SPOF: Single points of failure in the load balancer, application server, and primary database could lead to downtime and service disruption.
+
+Security Issues: Lack of a firewall and HTTPS exposes the infrastructure to attacks and compromises data security.
+
+No Monitoring: Without monitoring, there is no way to proactively manage performance, detect failures, or respond to security threats, leading to potential undetected issues and prolonged outages.
