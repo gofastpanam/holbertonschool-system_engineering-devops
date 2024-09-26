@@ -1,0 +1,34 @@
+DIAGRAM : https://drive.google.com/file/d/1Kq5Y9Ibt0Yi2XZRqKz1uusuAJxZoIWGl/view?usp=drive_link
+
+----------------------------------------------------------------------------
+
+What is a server?
+-> A server is a computer programm or a device that provides services and functionnalities to others programs or devices, called "clients"
+
+What is the role of the domain name?
+-> The domain name is a human readabble identifier with its own location (maps to a specific IP address) on the internet.
+
+What type of DNS record www is in www.foobar.com?
+-> www is a subdomain.
+
+What is the role of the web server?
+-> The role of the web server is to deliver web page such as HTML page in response to a HTTP request.
+
+What is the role of the application server?
+-> The role of an application server is to use dynamic processes to interact with database(s) and processing requests.
+
+What is the role of the database?
+-> The main goal of a database is to store, manage and retrieve data informations safely. 
+
+What is the server using to communicate with the computer of the user requesting the website? 
+-> TCP/IP protocols through HTTP or secured HTTPS.
+
+
+----------------------------------------------------------------------------
+
+ISSUES ======>
+-> SPOF: means 'Single Point of Failure'. If a component is failing to work it is entire system that fails. 
+
+-> Downtime When Maintenance Needed: Sometimes we have to inject new code to a program and it needs a restart of the server. 
+
+-> Cannot Scale if Too Much Incoming Traffic: If the infrastructure cannot handle increased traffic, it means the system lacks the capability to scale horizontally or vertically to manage higher loads.
