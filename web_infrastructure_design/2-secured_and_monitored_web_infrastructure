@@ -1,0 +1,20 @@
+DIAGRAM: https://drive.google.com/file/d/1J5nNmpZOlK-xXpPzsAF-RQa4b8oOufLw/view?usp=drive_link
+
+------------------------
+
+For www.foobar.com, the infrastructure includes three firewalls to filter and secure traffic at different stages: between the internet and the load balancer, between the load balancer and web servers, and between web servers and the database server. An SSL certificate encrypts data exchanged with users, ensuring secure communication over HTTPS. Monitoring tools, installed on the load balancer, web servers, and database server, collect and analyze performance and security data, sending it to a monitoring service like Sumo Logic for insights and alerts. To monitor web server QPS (Queries Per Second), configure the monitoring tools to track HTTP request rates and analyze the data through dashboards, setting alerts for performance thresholds.
+
+Terminating SSL at the Load Balancer Level:
+
+Issue: When SSL is terminated at the load balancer, the data is decrypted at that point and sent in plain text to the web servers. This means that the data is vulnerable to interception between the load balancer and the web servers. If the internal network is compromised or not sufficiently secured, sensitive data could be exposed. For added security, SSL should be terminated at the web server level, ensuring end-to-end encryption.
+
+Having Only One MySQL Server Capable of Accepting Writes:
+
+Issue: Relying on a single MySQL server for all write operations creates a single point of failure and a performance bottleneck. If this server goes down, the entire application’s ability to process writes is halted. Additionally, this setup can lead to scalability issues as all write operations must be processed by this one server, which may not handle high traffic volumes effectively. Implementing a master-slave replication setup or a more scalable database architecture could mitigate these issues.
+
+Having Servers with All the Same Components (Database, Web Server, and Application Server):
+
+Issue: Deploying all components on the same servers (web, application, and database) leads to several problems:
+Performance Bottlenecks: Resource contention can occur as all services compete for CPU, memory, and disk I/O, potentially degrading performance.
+Scalability Limitations: Scaling components independently becomes difficult. For example, increasing database capacity may require additional hardware resources that affect web and application servers.
+Increased Risk: A failure in one component can impact the entire server, leading to system-wide outages. Separating concerns by using dedicated servers or services for each component enhances stability and allows for better fault isolation and resource allocation.
