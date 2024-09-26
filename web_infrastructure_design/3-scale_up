@@ -1,0 +1,17 @@
+DIAGRAM: https://drive.google.com/file/d/1ZfSndUeLPwBs_NVOmA6gxSRWwayOew_x/view?usp=drive_link
+
+HAproxy (Load Balancer):
+
+=> To distribute incoming traffic across multiple web servers to balance the load and improve reliability. It ensures high availability by managing traffic and providing failover capabilities in case of server failures.
+
+Web Server (one and two in our case):
+
+=> To handle HTTP requests and serve static content (e.g., HTML files, images). It ensures that users can access the web application and its resources efficiently.
+
+Application Server:
+
+=> To process the business logic of the application. It handles dynamic content and performs tasks such as data processing, user authentication, and application logic execution.
+
+Database Server:
+
+=> To store and manage the application's data. It provides a structured way to store, retrieve, and manipulate data used by the application server.
